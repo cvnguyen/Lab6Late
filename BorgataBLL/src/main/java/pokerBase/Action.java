@@ -14,15 +14,15 @@ public class Action {
 		
 		this.setGme(gme);
 		this.bEvaluateHand = false;
-		if (iCardDrawnPlayer < gme.getRule().GetPlayerNumberOfCards()) {
+		if (iCardDrawnPlayer < gme.getRule2().getPLAYERNUMBEROFCARDS()) {
 			eDrawAction = eDrawAction.DrawPlayer;
 			iCardDrawnPlayer++;
-		} else if ((iCardDrawnPlayer >= gme.getRule().GetPlayerNumberOfCards())
-				&& (iCardDrawnCommon <= gme.getRule().GetCommunityCardsCount())) {
+		} else if ((iCardDrawnPlayer >= gme.getRule2().getPLAYERNUMBEROFCARDS())
+				&& (iCardDrawnCommon <= gme.getRule2().getCOMMUNITYCARDSMAX())) {
 			eDrawAction = eDrawAction.DrawCommon;
 			iCardDrawnCommon++;
 		}
-		if (iCardDrawnPlayer + iCardDrawnCommon == gme.getRule().getTotalCardsToDraw())
+		if (iCardDrawnPlayer + iCardDrawnCommon == rle2.getTotalCardsToDraw())
 		{
 			this.bEvaluateHand = true;
 		}

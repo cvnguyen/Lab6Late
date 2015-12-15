@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 
 import base.GameRuleCardsDAL;
 import base.GameRuleDAL;
+import domain.CardDomainModel;
 import domain.GameRuleCardsDomainModel;
 import domain.GameRuleDomainModel;
 import util.HibernateUtil;
@@ -32,6 +33,11 @@ public class GameRuleCardsBLL   {
 		return grC;
 
 	}
+	
+	
+
+	
+	
 	
 	public static HashMap<String, GameRuleCardsDomainModel> getRuleCardsHashSet(int RuleID)
 	{

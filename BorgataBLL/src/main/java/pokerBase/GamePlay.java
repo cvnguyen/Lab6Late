@@ -9,29 +9,38 @@ import javax.xml.bind.annotation.XmlType;
 
 import domain.DeckDomainModel;
 import domain.GamePlayDomainModel;
+import domain.GameRuleDomainModel;
 import domain.RuleDomainModel;
+import logic.GameRuleCardsBLL;
 
 public class GamePlay extends GamePlayDomainModel {
 
 	private ArrayList<Player> GamePlayers = new ArrayList<Player>();
 	private ArrayList<GamePlayPlayerHand> GamePlayerHand = new ArrayList<GamePlayPlayerHand>();
 	private ArrayList<GamePlayPlayerHand> GameCommonHand = new ArrayList<GamePlayPlayerHand>();
-	private Rule rle;
+	private GameRuleDomainModel rle;
 	private Deck GameDeck = null;
+	private Rule rle2;
 	
-	public GamePlay(Rule rle)
+	public GamePlay(GameRuleDomainModel rle, Rule rle2)
 	{
 		this.setGameID(UUID.randomUUID());
-		this.setNbrOfCards(rle.GetPlayerNumberOfCards());
-		this.setMaxNbrOfPlayers(rle.GetMaxNumberOfPlayers());
-		this.setNbrOfJokers(rle.GetNumberOfJokers());
-		this.setWildCards(rle.GetRuleCards());
+		this.setNbrOfCards(rle.getPLAYERNUMBEROFCARDS());
+		this.setMaxNbrOfPlayers(rle.getMAXNUMBEROFPLAYERS());
+		this.setNbrOfJokers(rle.getNUMBEROFJOKERS());
+		this.setWildCards(rle2.GetRuleCards());
 		this.rle = rle;
+		this.rle2 = rle2;
 	}
 
-	public Rule getRule()
+	public GameRuleDomainModel getRule()
 	{
 		return this.rle;
+	}
+	
+	public Rule getRule2()
+	{
+		return this.rle2;
 	}
 	public ArrayList<Player> getGamePlayers() {
 		return GamePlayers;
